@@ -62,12 +62,12 @@ export default {
         },
         deleteClient(id){
                 let apiURL = `http://localhost:4000/api/delete-client/${id}`;
-                let indexOfArrayItem = this.Clients.findIndex(i => i._id === id);
+                //let indexOfArrayItem = this.Clients.findIndex(i => i._id === id); //работало в родителе
 
                 if (window.confirm("Do you really want to delete?")) {
-                    axios.delete(apiURL, this.client).then(() => {
-                        this.$router.push('/')
-                        this.Clients.splice(indexOfArrayItem, 1);
+                    axios.delete(apiURL).then(() => {
+                        this.$router.push('/')                             // в родителе не требовалось
+                        this.Clients.splice(this.CLients.indexOf(id), 1); // работало в родителе(indexOfArrayItem, 1)
                     }).catch(error => {
                         console.log(error)
                     });
