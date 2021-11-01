@@ -20,7 +20,7 @@ mongo
 
 ### open one more bash terminal
 cd backend
-//run:
+### run:
 nodemon
 
 ### Compiles and minifies for production
