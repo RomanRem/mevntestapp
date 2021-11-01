@@ -50,8 +50,3 @@
     }
 </script>
 
-<style>
-    .btn-success {
-        margin-right: 10px;
-    }
-</style>

@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h3 class="text-center">Update Client</h3>
+            <h3 class="text-center">Edit Client</h3>
             <form @submit.prevent="handleUpdateForm" >
                 <div class="form-group">
                     <label>Name</label>
@@ -24,8 +24,9 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-danger">Update</button>
-                    <button type="submit" @click.prevent="deleteClient(client._id)" class="btn btn-danger">Delete</button>
+                    <button type="submit" @click.prevent="deleteClient(client._id)"
+                    class="btn btn-danger">Delete</button>
+                    <button class="btn btn-outline-info">Save Client</button>
                 </div>
             </form>
         </div>
