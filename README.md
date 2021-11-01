@@ -9,7 +9,7 @@ npm i
 ```
 npm run serve
 ```
-### open another bash terminal
+### open one more bash terminal
 cd backend
 
 ### run :
@@ -18,7 +18,7 @@ npm i
 ### run : 
 mongo
 
-### open another bash terminal
+### open one more bash terminal
 cd backend
 //run:
 nodemon
