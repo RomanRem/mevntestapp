@@ -2,31 +2,39 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h3 class="text-center">Edit Client</h3>
-            <form @submit.prevent="handleUpdateForm" >
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" v-model="client.name" required>
+            <form @submit.prevent="handleUpdateForm">
+                <div class="form-group row mb-3">
+                    <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputName" class="form-control" v-model="client.name" required>
+                </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-control" v-model="client.email" required>
+                <div class="form-group row mb-3">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                    <input type="email" id="inputEmail" class="form-control" v-model="client.email" required>
                 </div>
-
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" class="form-control" v-model="client.phone" required>
                 </div>
-
-                <div class="form-group">
-                    <label>Providers</label>
-                    <input type="text" class="form-control" v-model="client.providers">
+                
+                <div class="form-group row mb-3">
+                    <label for="inputPhone" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputPhone" class="form-control" v-model="client.phone" required>
                 </div>
-
-                <div class="form-group">
-                    <button type="submit" @click.prevent="deleteClient(client._id)"
-                    class="btn btn-danger">Delete</button>
-                    <button class="btn btn-outline-info">Save Client</button>
+                </div>
+                
+                <div class="form-group row mb-3">
+                    <label for="inputProviders" class="col-sm-2 col-form-label">Providers:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputProviders" class="form-control" v-model="client.providers">
+                </div>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <button type="click" @click.prevent="deleteClient(client._id)"
+                     class="btn btn-danger ">Delete</button>
+                    <button type="submit" class="btn btn-outline-info">Save Client</button>
                 </div>
             </form>
         </div>

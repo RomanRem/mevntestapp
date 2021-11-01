@@ -27,33 +27,41 @@
           <div class="col-md-12">
             <h3 class="text-center">Create Client</h3>
             <form @submit.prevent="handleSubmitForm">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" v-model="client.name" required>
+                <div class="form-group row mb-3">
+                    <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputName" class="form-control" v-model="client.name" required>
+                </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-control" v-model="client.email" required>
+                <div class="form-group row mb-3">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                    <input type="email" id="inputEmail" class="form-control" v-model="client.email" required>
+                </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" class="form-control" v-model="client.phone" required>
+                <div class="form-group row mb-3">
+                    <label for="inputPhone" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputPhone" class="form-control" v-model="client.phone" required>
+                </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Provider</label>
-                    <input type="text" class="form-control" v-model="client.providers" required>
+                <div class="form-group row mb-3">
+                    <label for="inputProviders" class="col-sm-2 col-form-label">Providers:</label>
+                    <div class="col-sm-10">
+                    <input type="text" id="inputProviders" class="form-control" v-model="client.providers" required>
+                </div>
                 </div>
 
                 <div class="form-group modal-footer">
-                    <button type="submit" class="btn btn-outline-primary" >Add Client</button>
                     <button  class="btn btn-outline-secondary"
                      type="button"             
                      data-dismiss="modal"
                      aria-label="Close"
                      @click="toggleModal">Chancel</button>
+                    <button type="submit" class="btn btn-outline-primary">Add Client</button>
                 </div>
             </form>
         </div>
