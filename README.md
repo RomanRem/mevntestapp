@@ -2,13 +2,26 @@
 
 ## Project setup
 ```
-npm install
+npm i
 ```
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
+### open one more bash terminal
+cd backend
+
+### run :
+npm i
+
+### run : 
+mongo
+
+### open one more bash terminal
+cd backend
+### run:
+nodemon
 
 ### Compiles and minifies for production
 ```
