@@ -30,8 +30,8 @@ app.use('/api', clientAPI);
 
 // Create port
 const port = process.env.PORT || 4000;
-const listenServer = app.listen(port, () => {
-  console.log('Connected to port ' + listenServer.port);
+app.listen(port, () => {
+  console.log('Connected to port ' + port);
 });
 
 // Find 404
