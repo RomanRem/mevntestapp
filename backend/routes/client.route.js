@@ -25,7 +25,7 @@ clientRoute.route('/').get((req, res, next) => {
 });
 
 clientRoute.route('/edit-client/:id').get((req, res) => {
-  ClientModel.findById(req.params.id, (error, data, next) => {
+  ClientModel.findOneAndReplace(req.params.id, (error, data, next) => {
     if (error) {
       return next(error);
     } else {
@@ -36,7 +36,7 @@ clientRoute.route('/edit-client/:id').get((req, res) => {
 
 // Update client
 clientRoute.route('/update-client/:id').post((req, res, next) => {
-  ClientModel.findByIdAndUpdate(req.params.id, {
+  ClientModel.findOneAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
     if (error) {
