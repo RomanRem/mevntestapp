@@ -75,7 +75,7 @@ export default {
                 if (window.confirm("Do you really want to delete?")) {
                     axios.delete(apiURL).then(() => {
                         this.$router.push('/')                             // в родителе не требовалось
-                        this.Clients.splice(this.CLients.indexOf(id), 1); // работало в родителе(indexOfArrayItem, 1)
+                        this.Clients.splice(this.Clients.indexOf(id), 1); // работало в родителе(indexOfArrayItem, 1)
                     }).catch(error => {
                         console.log(error)
                     });
