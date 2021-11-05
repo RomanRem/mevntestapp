@@ -25,8 +25,7 @@
           <div class="modal-body">
             <div class="justify-content-center row">
           <div class="col-md-12">
-            <h3 class="text-center">Create Client</h3>
-            <form @submit.prevent="handleSubmitForm">
+              <form @submit.prevent="handleSubmitForm">
                 <div class="form-group row mb-3">
                     <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-10">
@@ -78,7 +77,8 @@
     import axios from "axios";
 
     export default {
-
+       name: "add",
+       props: ['addCl'], 
         data() {
             return {
                 active: false,
@@ -115,7 +115,17 @@
               ? body.classList.add("modal-open")
               : body.classList.remove("modal-open");
             setTimeout(() => (this.show = !this.show), 10);
-          }
+            
+            this.addCl('addcl', {
+            name: this.client.name,
+            email: this.client.email,
+            phone: this.client.phone,
+            providers: this.client.providers
+            
+            })
+          },
+          
+          
             
         }
         }
