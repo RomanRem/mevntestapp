@@ -82,7 +82,7 @@ name: 'home',
     toggleModal() {
       this.showModalNow = !this.showModalNow;
     },
-    addCl(){}
+    addCl(){}                       //emit
   }
 };
 </script>

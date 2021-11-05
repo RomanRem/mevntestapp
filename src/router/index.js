@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import ClientsHome from '../components/ClientsHome';
-//import EmptyModal from '../components/EmptyModal';
+//import ClientsHome from '../components/ClientsHome';
 import AddClient from '../components/AddClient';
 import EditClient from '../components/EditClient';
 
@@ -11,20 +10,24 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: ClientsHome,
+    //component: ClientsHome,
+    
+    props: true,
   
     children:[
           {
-           path: '/addclient',
+           path: '/add',
            name: 'add.client',
-           component: AddClient
+           component: AddClient,
+           props: true
           }]
   
         },
         {
-          path: '/editclient/:id',
+          path: '/edit/:id',
           name: 'edit.client',
-          component: EditClient
+          component: EditClient,
+          props: true
          }   
 ];
 const originalPush = VueRouter.prototype.push;
