@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    //component: ClientsHome,
+    //component: ClientsHome,  06.11
     
     props: true,
   
