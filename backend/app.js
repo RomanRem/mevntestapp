@@ -8,7 +8,9 @@ let express = require('express'),
 
 mongoose.connect(database.db, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
+
 }).then(() => {
     console.log("Database connected");
   },
