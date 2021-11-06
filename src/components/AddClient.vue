@@ -60,7 +60,7 @@
                      data-dismiss="modal"
                      aria-label="Close"
                      @click="toggleModal">Chancel</button>
-                    <button type="submit" @submit.prevent="handleSubmitForm" class="btn btn-outline-primary">Add Client</button>
+                    <button type="submit"  @click="handleSubmitForm" class="btn btn-outline-primary">Add Client</button>
                 </div>
             </form>
         </div>
