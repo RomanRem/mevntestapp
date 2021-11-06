@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-//import ClientsHome from '../components/ClientsHome';
 import AddClient from '../components/AddClient';
 import EditClient from '../components/EditClient';
 
@@ -10,13 +9,11 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    //component: ClientsHome,  06.11
-    
     props: true,
   
     children:[
           {
-           path: '/add',
+           path: '/add-client',
            name: 'add.client',
            component: AddClient,
            props: true
@@ -24,7 +21,7 @@ const routes = [
   
         },
         {
-          path: '/edit/:id',
+          path: '/edit-client/:id',
           name: 'edit.client',
           component: EditClient,
           props: true
