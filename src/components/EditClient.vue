@@ -32,7 +32,7 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                    <button @click="deleteClient(client._id)"
+                    <button @click.prevent="deleteClient(client._id)"
                      class="btn btn-danger ">Delete</button>
                     <button @click="handleUpdateForm" class="btn btn-outline-info">Save Client</button>
                 </div>
