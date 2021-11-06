@@ -31,19 +31,12 @@
                         <td>{{ client.providers }}</td>
                         <td>
                           <edit-client :showModal="showModalNow" @closeModal="closeMyModal"/>
-                          
-                        
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <!-- Router view -->
-    <div class="container mt-5">
-      <router-view></router-view>
-           
-    </div>
-    </div>
+      </div>
     </div>
 </template>
 
