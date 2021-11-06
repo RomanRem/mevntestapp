@@ -25,7 +25,7 @@
           <div class="modal-body">
             <div class="justify-content-center row">
           <div class="col-md-12">
-              <form @submit.prevent="handleSubmitForm">
+              <form>
                 <div class="form-group row mb-3">
                     <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-10">
@@ -60,7 +60,7 @@
                      data-dismiss="modal"
                      aria-label="Close"
                      @click="toggleModal">Chancel</button>
-                    <button type="submit" class="btn btn-outline-primary">Add Client</button>
+                    <button type="submit" @submit.prevent="handleSubmitForm" class="btn btn-outline-primary">Add Client</button>
                 </div>
             </form>
         </div>
