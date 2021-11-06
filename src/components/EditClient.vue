@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h3 class="text-center">Edit Client</h3>
-            <form @submit.prevent="handleUpdateForm">
+            <form>
                 <div class="form-group row mb-3">
                     <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-10">
@@ -32,9 +32,9 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                    <button type="click" @click.prevent="deleteClient(client._id)"
+                    <button @click="deleteClient(client._id)"
                      class="btn btn-danger ">Delete</button>
-                    <button type="submit" class="btn btn-outline-info">Save Client</button>
+                    <button @click="handleUpdateForm" class="btn btn-outline-info">Save Client</button>
                 </div>
             </form>
         </div>
