@@ -1,8 +1,31 @@
-<template>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h3 class="text-center">Edit Client</h3>
-            <form>
+<template><div>
+    <div>
+    <button type="button" class="btn btn-success" @click="toggleModal">Edit</button>
+    <div
+      ref="modal"
+      class="modal fade"
+      :class="{show, 'd-block': active}"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Client</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              @click="toggleModal"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="justify-content-center row">
+          <div class="col-md-12">
+              <form>
                 <div class="form-group row mb-3">
                     <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-10">
@@ -16,29 +39,37 @@
                     <input type="email" id="inputEmail" class="form-control" v-model="client.email" required>
                 </div>
                 </div>
-                
+
                 <div class="form-group row mb-3">
                     <label for="inputPhone" class="col-sm-2 col-form-label">Phone:</label>
                     <div class="col-sm-10">
                     <input type="text" id="inputPhone" class="form-control" v-model="client.phone" required>
                 </div>
                 </div>
-                
+
                 <div class="form-group row mb-3">
                     <label for="inputProviders" class="col-sm-2 col-form-label">Providers:</label>
                     <div class="col-sm-10">
-                    <input type="text" id="inputProviders" class="form-control" v-model="client.providers">
+                    <input type="text" id="inputProviders" class="form-control" v-model="client.providers" required>
                 </div>
                 </div>
-                
+                <div class="form-group modal-footer">
                 <div class="input-group mb-3">
                     <button @click.prevent="deleteClient(client._id)"
                      class="btn btn-danger ">Delete</button>
                     <button @click="handleUpdateForm" class="btn btn-outline-info">Save Client</button>
                 </div>
+                </div>
             </form>
         </div>
     </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="active" class="modal-backdrop fade show"></div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -47,6 +78,8 @@ import axios from "axios";
 export default {
     data() {
         return {
+            active: false,
+            show: false,
             client: { }
         }
     },
@@ -80,7 +113,17 @@ export default {
                         console.log(error)
                     });
                 }
-            }
+            },
+            toggleModal() {
+            const body = document.querySelector("body");
+            this.active = !this.active;
+            this.active
+              ? body.classList.add("modal-open")
+              : body.classList.remove("modal-open");
+            setTimeout(() => (this.show = !this.show), 10);
+            
+            
+          },
     }
 }
 </script>

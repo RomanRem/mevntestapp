@@ -14,8 +14,8 @@ clientRoute.route('/').get((req, res, next) => {
    });
  });
 
- clientRoute.route('/create-client').post((req, res) => {
-  ClientModel.create(req.body, (error, data, next) => {
+ clientRoute.route('/create-client').post((req, res, next) => {
+  ClientModel.create(req.body, (error, data, ) => {
     if (error) {
       return next(error);
     } else {

@@ -6,7 +6,7 @@
         <a class="navbar-brand float-left">Clients</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <add-client :showModal="showModalNow" @closeModal="closeMyModal" :addCl='addCl'/>
+            <add-client :showModal="showModalNow" @closeModal="closeMyModal"/>
           </li>
         </ul>
       </div>
@@ -75,7 +75,7 @@ name: 'home',
     toggleModal() {
       this.showModalNow = !this.showModalNow;
     },
-    addCl(){}                       //emit пока хз что с ним делать
+    
   }
 };
 </script>

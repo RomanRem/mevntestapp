@@ -60,7 +60,8 @@
                      data-dismiss="modal"
                      aria-label="Close"
                      @click="toggleModal">Chancel</button>
-                    <button @click="handleSubmitForm" class="btn btn-outline-primary">Add Client</button>                </div>
+                    <button @click="handleSubmitForm" class="btn btn-outline-primary">Add Client</button>   
+                </div>
             </form>
         </div>
     </div>
@@ -77,7 +78,7 @@
 
     export default {
        name: "add",
-       props: ['addCl'], 
+        
         data() {
             return {
                 active: false,
@@ -115,13 +116,7 @@
               : body.classList.remove("modal-open");
             setTimeout(() => (this.show = !this.show), 10);
             
-            this.addCl('addcl', {
-            name: this.client.name,
-            email: this.client.email,
-            phone: this.client.phone,
-            providers: this.client.providers
             
-            })
           },
           
           
