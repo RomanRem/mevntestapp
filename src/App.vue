@@ -12,7 +12,7 @@
         <a class="navbar-brand float-left">Clients</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <add-client :showModal="showModalNow" @closeModal="closeMyModal" />
+            <add-client :showModal="showModalNow" @closeModal="closeMyModal"/>
           </li>
         </ul>
       </div>
@@ -26,6 +26,7 @@
 <script>
 import addClient from "./components/AddClient";
 //import axios from "axios";
+//import {eventBus} from '.main;'
 export default {
   name: "home",
   components: {

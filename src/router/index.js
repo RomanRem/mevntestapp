@@ -14,7 +14,7 @@ const routes = [
   
     children:[
           {
-           path: '/add-client/:id',
+           path: 'add-client/',
            name: 'add.client',
            component: AddClient,
            props: true
@@ -22,7 +22,7 @@ const routes = [
   
         
         {
-          path: '/edit-client/:id',
+          path: 'edit-client/:id',
           name: 'edit.client',
           component: EditClient,
           props: true

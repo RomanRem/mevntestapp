@@ -18,9 +18,9 @@
             <td>{{ client.phone }}</td>
             <td>{{ client.providers }}</td>
             <td>
-              <edit-client
+              <edit-client 
                 :showModal="showModalNow"
-                @closeModal="closeMyModal"
+                @closeModal="closeMyModal" 
               />
             </td>
           </tr>
@@ -33,7 +33,7 @@
 <script>
 import axios from "axios";
 import EditClient from "./EditClient.vue";
-
+import {eventBus} from '../main.js'
 export default {
   name: "clientsHome",
 
@@ -47,15 +47,18 @@ export default {
     };
   },
   created() {
-    let apiURL = "http://localhost:4000/api";
-    axios
-      .get(apiURL)
-      .then((res) => {
+    
+
+    let apiURL = "http://localhost:4000/api/";
+    axios.get(apiURL).then((res) => {
         this.Clients = res.data;
-      })
-      .catch((error) => {
+        eventBus.$on('updateClientdata')
+        console.log(eventBus.data)
+      }).catch((error) => {
         console.log(error);
       });
+    
+    
   },
   methods: {
     closeMyModal() {

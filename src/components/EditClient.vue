@@ -120,8 +120,10 @@
 
 <script>
 import axios from "axios";
-
+//import { eventBus } from "../main.js";
 export default {
+  name: "editClient",
+
   data() {
     return {
       active: false,
@@ -130,11 +132,14 @@ export default {
     };
   },
   created() {
+    //eventBus.$on("updateClientdata");
+    //this.$nextTick(() => {
     let apiURL = `http://localhost:4000/api/edit-client/${this.$route.params.id}`;
 
     axios.get(apiURL).then((res) => {
       this.client = res.data;
     });
+   // })
   },
   methods: {
     handleUpdateForm() {
