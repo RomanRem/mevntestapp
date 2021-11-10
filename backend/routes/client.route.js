@@ -14,8 +14,8 @@ clientRoute.route('/').get((req, res, next) => {
    });
  });
 
- clientRoute.route('/create-client/').post((req, res, ) => {
-  ClientModel.create(req.body, (error, data,next ) => {
+ clientRoute.route('/create-client/').post((req, res, next ) => {
+  ClientModel.create(req.body, (error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -24,8 +24,8 @@ clientRoute.route('/').get((req, res, next) => {
   });
 });
 
-clientRoute.route('/edit-client/:id').get((req, res) => {
-  ClientModel.findOneAndReplace(req.params.id, (error, data, next) => {
+clientRoute.route('/edit-client/:id').get((req, res, next) => {
+  ClientModel.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
