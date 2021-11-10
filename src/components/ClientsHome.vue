@@ -22,6 +22,7 @@
                 :showModal="showModalNow"
                 @closeModal="closeMyModal" 
               />
+            
             </td>
           </tr>
         </tbody>
@@ -33,7 +34,7 @@
 <script>
 import axios from "axios";
 import EditClient from "./EditClient.vue";
-import {eventBus} from '../main.js'
+//import {eventBus} from '../main.js'
 export default {
   name: "clientsHome",
 
@@ -52,12 +53,11 @@ export default {
     let apiURL = "http://localhost:4000/api/";
     axios.get(apiURL).then((res) => {
         this.Clients = res.data;
-        eventBus.$on('updateClientdata')
-        console.log(eventBus.data)
+        //eventBus.$on('updateClientdata')
+        //console.log(eventBus.data)
       }).catch((error) => {
         console.log(error);
       });
-    
     
   },
   methods: {
