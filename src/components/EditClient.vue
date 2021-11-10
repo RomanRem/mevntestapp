@@ -28,7 +28,7 @@
             <div class="modal-body">
               <div class="justify-content-center row">
                 <div class="col-md-12">
-                  <form>
+                  <form name="editClient">
                     <div class="form-group row mb-3">
                       <label for="inputName" class="col-sm-2 col-form-label"
                         >Name:</label
@@ -123,7 +123,7 @@ import axios from "axios";
 //import { eventBus } from "../main.js";
 export default {
   name: "editClient",
-
+  
   data() {
     return {
       active: false,
@@ -132,14 +132,13 @@ export default {
     };
   },
   created() {
-    //eventBus.$on("updateClientdata");
-    //this.$nextTick(() => {
+    
     let apiURL = `http://localhost:4000/api/edit-client/${this.$route.params.id}`;
 
     axios.get(apiURL).then((res) => {
       this.client = res.data;
     });
-   // })
+   
   },
   methods: {
     handleUpdateForm() {

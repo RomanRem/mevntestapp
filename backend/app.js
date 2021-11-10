@@ -9,7 +9,8 @@ let express = require('express'),
 mongoose.connect(database.db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: true,
+  
 
 }).then(() => {
     console.log("Database connected");
@@ -21,6 +22,14 @@ mongoose.connect(database.db, {
 
 const clientAPI = require('../backend/routes/client.route');
 const app = express();
+
+app.use(function(req, res, next) {
+  if (req.headers['content-type'] === 'application/json;') {
+    req.headers['content-type'] = 'application/json';
+  }
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({
   extended: false
@@ -28,7 +37,7 @@ app.use(express.urlencoded({
 app.use(cors());
 
 // API
-app.use('/api', clientAPI);
+app.use('/api/', clientAPI);
 
 // Create port
 const port = process.env.PORT || 4000;

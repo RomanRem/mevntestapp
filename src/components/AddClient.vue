@@ -25,7 +25,7 @@
           <div class="modal-body">
             <div class="justify-content-center row">
           <div class="col-md-12">
-              <form>
+              <form name="addClient">
                 <div class="form-group row mb-3">
                     <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-10">
