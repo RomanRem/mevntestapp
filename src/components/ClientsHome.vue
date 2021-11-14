@@ -18,11 +18,13 @@
             <td>{{ client.phone }}</td>
             <td>{{ client.providers }}</td>
             <td>
-              
-              <edit-client :to="client"
+              <router-link  :to="{name:'edit.client' , params: {id: client._id}}">
+              <edit-client v-bind="client"
                 :showModal="showModalNow"
                 @closeModal="closeMyModal" 
               />
+              </router-link>
+              
               
             </td>
           </tr>
@@ -61,13 +63,16 @@ export default {
       });
     
   },
+  
+      
+      
+    
   methods: {
     sendData(){
       eventBus.$emit('addclient',{
-      client: this.client
+      client: this.client.data
       })
-      this.$router.push({name:"edit.client" , params: {id:"client._id"}});
-      console.log("sucess")
+      
     },
     
     

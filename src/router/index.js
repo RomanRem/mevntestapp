@@ -22,7 +22,7 @@ const routes = [
   
         
         {
-          path: 'edit-client/:id',
+          path: '/edit-client/:id',
           name: 'edit.client',
           component: EditClient,
           props: true

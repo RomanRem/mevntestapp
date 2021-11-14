@@ -21,5 +21,5 @@ let clientSchema = new Schema(
     collection: "clients",
   }
 );
-clientSchema._id instanceof mongoose.Types.ObjectId;
+//clientSchema._id instanceof mongoose.Types.ObjectId;
 module.exports = mongoose.model("Client", clientSchema);
