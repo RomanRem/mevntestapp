@@ -76,7 +76,7 @@
 
 <script>
     import axios from "axios";
-    import {eventBus} from '../main.js';
+    
     export default {
        name: "add",
         
@@ -96,7 +96,7 @@
         handleSubmitForm() {
                 let apiURL = 'http://localhost:4000/api/create-client';
                 
-                axios.post(apiURL, this.client).then(() => {
+             axios.post(apiURL, this.client).then(() => {
                   this.$router.push('/')
                   this.client = {
                     name: '',
@@ -107,10 +107,7 @@
                 }).catch(error => {
                     console.log(error)
                 });
-            //this.$nextTick(() => {
-           eventBus.$emit('updateClientdata')
-           
-    //})
+        
           },
             toggleModal() {
             const body = document.querySelector("body");

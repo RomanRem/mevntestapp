@@ -1,7 +1,7 @@
-<template>
+<template v-on="client">
   <div>
     <div>
-      <button type="button" class="btn btn-success" @click="toggleModal">
+      <button type="button"  class="btn btn-success" @click="toggleModal">
         Edit
       </button>
       <div
@@ -28,7 +28,7 @@
             <div class="modal-body">
               <div class="justify-content-center row">
                 <div class="col-md-12">
-                  <form name="editClient">
+                  <form @submit.prevent="handleSubmit">
                     <div class="form-group row mb-3">
                       <label for="inputName" class="col-sm-2 col-form-label"
                         >Name:</label
@@ -120,33 +120,39 @@
 
 <script>
 import axios from "axios";
-//import { eventBus } from "../main.js";
+import { eventBus } from "../main.js";
 export default {
   name: "editClient",
-  
+  //props:['client'],
   data() {
     return {
       active: false,
       show: false,
       client: {},
+      
     };
   },
+  
   created() {
-    
+    eventBus.$on('addclient', data => {
+    this.client = data.client
+    })
+    //this.$watch(() => this.$route.params)
     let apiURL = `http://localhost:4000/api/edit-client/${this.$route.params.id}`;
 
-    axios.get(apiURL).then((res) => {
+      axios.get(apiURL).then((res) => {
+      
       this.client = res.data;
+      
     });
    
   },
+  
   methods: {
     handleUpdateForm() {
       let apiURL = `http://localhost:4000/api/update-client/${this.$route.params.id}`;
 
-      axios
-        .post(apiURL, this.client)
-        .then((res) => {
+      axios.post(apiURL, this.client).then((res) => {
           console.log(res);
           this.$router.push("/");
         })
@@ -156,12 +162,10 @@ export default {
     },
     deleteClient(id) {
       let apiURL = `http://localhost:4000/api/delete-client/${id}`;
-      //let indexOfArrayItem = this.Clients.findIndex(i => i._id === id); //работало в родителе
+      //let indexOfArrayItem = this.Clients.findIndex(i => i._id === id); //работало в начальном варианте
 
       if (window.confirm("Do you really want to delete?")) {
-        axios
-          .delete(apiURL)
-          .then(() => {
+        axios.delete(apiURL).then(() => {
             this.$router.push("/"); // в родителе не требовалось
             this.Clients.splice(this.Clients.indexOf(id), 1); // работало в родителе(indexOfArrayItem, 1)
           })

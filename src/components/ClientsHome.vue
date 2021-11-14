@@ -18,11 +18,12 @@
             <td>{{ client.phone }}</td>
             <td>{{ client.providers }}</td>
             <td>
-              <edit-client 
+              
+              <edit-client :to="client"
                 :showModal="showModalNow"
                 @closeModal="closeMyModal" 
               />
-            
+              
             </td>
           </tr>
         </tbody>
@@ -34,7 +35,7 @@
 <script>
 import axios from "axios";
 import EditClient from "./EditClient.vue";
-//import {eventBus} from '../main.js'
+import {eventBus} from '../main.js'
 export default {
   name: "clientsHome",
 
@@ -45,6 +46,7 @@ export default {
     return {
       showModalNow: false,
       Clients: [],
+      
     };
   },
   created() {
@@ -53,14 +55,22 @@ export default {
     let apiURL = "http://localhost:4000/api/";
     axios.get(apiURL).then((res) => {
         this.Clients = res.data;
-        //eventBus.$on('updateClientdata')
-        //console.log(eventBus.data)
+        
       }).catch((error) => {
         console.log(error);
       });
     
   },
   methods: {
+    sendData(){
+      eventBus.$emit('addclient',{
+      client: this.client
+      })
+      this.$router.push({name:"edit.client" , params: {id:"client._id"}});
+      console.log("sucess")
+    },
+    
+    
     closeMyModal() {
       this.showModalNow = false;
     },

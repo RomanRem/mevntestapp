@@ -14,7 +14,7 @@ const routes = [
   
     children:[
           {
-           path: 'add-client/',
+           path: '/add-client/',
            name: 'add.client',
            component: AddClient,
            props: true

@@ -9,7 +9,7 @@ let express = require('express'),
 mongoose.connect(database.db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    
   
 
 }).then(() => {
@@ -23,16 +23,12 @@ mongoose.connect(database.db, {
 const clientAPI = require('../backend/routes/client.route');
 const app = express();
 
-app.use(function(req, res, next) {
-  if (req.headers['content-type'] === 'application/json;') {
-    req.headers['content-type'] = 'application/json';
-  }
-  next();
-});
+
 
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: false
+  extended: false,
+  mergeParams: true
 }));
 app.use(cors());
 
