@@ -24,7 +24,7 @@
                 @closeModal="closeMyModal" 
               />
               </router-link>
-              
+            
               
             </td>
           </tr>
@@ -37,7 +37,7 @@
 <script>
 import axios from "axios";
 import EditClient from "./EditClient.vue";
-import {eventBus} from '../main.js'
+//import {eventBus} from '../main.js'
 export default {
   name: "clientsHome",
 
@@ -68,12 +68,10 @@ export default {
       
     
   methods: {
-    sendData(){
-      eventBus.$emit('addclient',{
-      client: this.client.data
-      })
-      
-    },
+    //sendData(){
+     // eventBus.$emit('addclient',this.client)
+    //  this.client = {}
+   // },
     
     
     closeMyModal() {

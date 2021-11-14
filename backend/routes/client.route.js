@@ -27,7 +27,7 @@ clientRoute.route('/').get((req, res) => {
 
 clientRoute.route('/edit-client/:id').get ((req, res, next) => {
   
-  ClientModel.findByIdAndUpdate(req.params.id , (error, data) => {
+  ClientModel.findById(req.params.id , (error, data) => {
     if (error) {
       return next(error);
     } else {

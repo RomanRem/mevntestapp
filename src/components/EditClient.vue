@@ -1,4 +1,4 @@
-<template v-on="client">
+<template>
   <div>
     <div>
       <button type="button"  class="btn btn-success" @click="toggleModal">
@@ -99,7 +99,7 @@
                           Delete
                         </button>
                         <button
-                          @click="handleUpdateForm"
+                          @click.prevent="handleUpdateForm"
                           class="btn btn-outline-info"
                         >
                           Save Client
@@ -120,24 +120,30 @@
 
 <script>
 import axios from "axios";
-import { eventBus } from "../main.js";
+//import { eventBus } from "../main.js";
 export default {
   name: "editClient",
-  //props:['client'],
+  props:['email','name','phone','providers'],
   data() {
     return {
       active: false,
       show: false,
-      client: {},
+      client: {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        providers: this.providers
+        },
       
     };
   },
   
   created() {
-    eventBus.$on('addclient', (data)=>{
-    this.client = data.client
+    //eventBus.$on('addclient', (data)=>{
+   // this.client = data.client;
+   
 
-    })
+   // })
     //this.$watch(() => this.$route.params)
     let apiURL = `http://localhost:4000/api/edit-client/${this.$route.params.id}`;
 
