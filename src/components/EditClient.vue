@@ -134,8 +134,9 @@ export default {
   },
   
   created() {
-    eventBus.$on('addclient', data => {
+    eventBus.$on('addclient', (data)=>{
     this.client = data.client
+
     })
     //this.$watch(() => this.$route.params)
     let apiURL = `http://localhost:4000/api/edit-client/${this.$route.params.id}`;
