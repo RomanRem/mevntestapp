@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <button type="button"  class="btn btn-success" @click="toggleModal">
+      <button type="button"  class="btn btn-link" @click="toggleModal">
         Edit
       </button>
       <div
