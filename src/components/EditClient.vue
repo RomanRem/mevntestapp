@@ -27,7 +27,7 @@
             </div>
             <div class="modal-body">
               <div class="justify-content-center row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <form @submit.prevent="handleSubmit">
                     <div class="form-group row mb-3">
                       <label for="inputName" class="col-sm-2 col-form-label"
@@ -73,14 +73,16 @@
                         />
                       </div>
                     </div>
-
+                    
                     <div class="form-group row mb-3">
                       <label
                         for="inputProviders"
                         class="col-sm-2 col-form-label"
                         >Providers:</label
                       >
-                      <div class="col-sm-10">
+                      
+                      <div class="col-sm-7">
+                      
                         <input
                           type="text"
                           id="inputProviders"
@@ -88,19 +90,26 @@
                           v-model="client.providers"
                           required
                         />
+                        
                       </div>
+                      <button type="submit" class="btn btn-primary mb-2 ">Add Provider</button>
                     </div>
-                    <div class="form-group modal-footer">
-                      <div class="input-group mb-3">
+                    
+                    <div class="modal-footer justify-content-between">
+                      
                         <button
                           @click.prevent="deleteClient(client._id)"
-                          class="btn btn-danger"
+                          class="btn btn-danger btn-sm" 
                         >
                           Delete
                         </button>
+                        <div>
+                        <button type="button" class="btn btn-outline-info btn-sm mr-2"
+                         data-dismiss="modal">Chancel</button>
+                         
                         <button
                           @click.prevent="handleUpdateForm"
-                          class="btn btn-outline-info"
+                          class="btn btn-outline-info btn-sm mr-2"  
                         >
                           Save Client
                         </button>
