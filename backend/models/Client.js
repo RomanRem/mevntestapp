@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const { Schema,Types } = mongoose;
 
+let providerSchema = new Schema({
+  name: {
+    type: String
+  },
+
+});
 let clientSchema = new Schema(
   
   {
@@ -13,13 +19,14 @@ let clientSchema = new Schema(
     phone: {
       type: Number,
     },
-    providers: {
-      type: String,
-    },
+    providers:[{
+      type: Types.ObjectId,
+       ref: 'provider'
+    }],
   },
-  {
+   {
     collection: "clients",
-  }
-);
-//clientSchema._id instanceof mongoose.Types.ObjectId;
+   });
+providerSchema.index({ name: 1 }, { unique: true });
 module.exports = mongoose.model("Client", clientSchema);
+module.exports = mongoose.model('Provider', providerSchema);
