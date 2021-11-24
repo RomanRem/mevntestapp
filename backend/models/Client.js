@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
-const { Schema,Types } = mongoose;
+const {Schema, Types} = mongoose;
+
 
 let providerSchema = new Schema({
+  
   name: {
-    type: String
-  },
-
+   type: String
+},
 });
 let clientSchema = new Schema(
-  
-  {
+   {
     name: {
       type: String,
     },
@@ -21,12 +21,13 @@ let clientSchema = new Schema(
     },
     providers:[{
       type: Types.ObjectId,
-       ref: 'provider'
+      ref: 'Provider'
     }],
   },
    {
     collection: "clients",
    });
-providerSchema.index({ name: 1 }, { unique: true });
+//clientSchema.index({ email: 1 }, { unique: true });
+//providerSchema.index({ name: 1 }, { unique: true });
 module.exports = mongoose.model("Client", clientSchema);
 module.exports = mongoose.model('Provider', providerSchema);

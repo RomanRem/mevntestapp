@@ -14,7 +14,7 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">New Client</h5>
+              <h5 class="modal-title">Edit Client</h5>
               <button
                 type="button"
                 class="close"
@@ -181,7 +181,10 @@
                           Delete
                         </button>
                         <div>
-                        <button type="button" class="btn btn-outline-info btn-sm"
+                        <button type="button" 
+                         aria-label="Close"
+                         @click="toggleModal"
+                         class="btn btn-outline-info btn-sm"
                          data-dismiss="modal">Chancel
                          </button>
                          
@@ -220,7 +223,9 @@ export default {
         phone: this.phone,
         providers: this.providers
         },
-      
+      //prov:[
+       // {name: this.provider.name}
+      //]
     };
   },
   

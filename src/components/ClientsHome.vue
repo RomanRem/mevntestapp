@@ -48,7 +48,7 @@ export default {
     return {
       showModalNow: false,
       Clients: [],
-      
+      Providers:[]      
     };
   },
   created() {
@@ -57,7 +57,7 @@ export default {
     let apiURL = "http://localhost:4000/api/";
     axios.get(apiURL).then((res) => {
         this.Clients = res.data;
-        
+        this.Providers = res.data;
       }).catch((error) => {
         console.log(error);
       });

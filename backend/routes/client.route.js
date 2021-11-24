@@ -25,9 +25,9 @@ clientRoute.route('/').get((req, res) => {
   });
 });
 
-clientRoute.route('/edit-client/:id').get ((req, res, next) => {
+clientRoute.route('/edit-client/:id').get ((req, res) => {
   
-  ClientModel.findById(req.params.id , (error, data) => {
+  ClientModel.findById(req.params.id , (error, data, next) => {
     if (error) {
       return next(error);
     } else {
