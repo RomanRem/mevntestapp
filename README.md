@@ -16,7 +16,7 @@ cd backend
 npm i
 
 ### run : 
-mongo
+mongosh
 
 ### open one more bash terminal
 cd backend
